@@ -1,0 +1,11 @@
+ogr2ogr -f GeoJSONSeq -lco RS=YES /vsistdout/
+ogr2ogr -f GeoJSONSeq -lco RS=YES /vsistdout/
+
+
+ogr2ogr -f GeoJSONSeq -lco RS=YES /vsistdout/ src/01223__13_r_2023.geojson
+
+#出力したのは文字化けしていない
+ogr2ogr -f GeoJSONSeq  -lco RS=YES test123.geojsons src/01223__13_r_2023.geojson
+
+#PowerShellを通すと文字化けする
+ogr2ogr -f GeoJSONSeq  -lco RS=YES /vsistdout/ src/01223__13_r_2023.geojson | Select-Object -First 3 | Set-Content test123.txt
